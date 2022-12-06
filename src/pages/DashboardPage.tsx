@@ -26,7 +26,6 @@ const columns: ColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     width:150,
-    sorter: (a, b) => a.name.length - b.name.length,
   },
   {
     title: 'Date Posted',
@@ -40,12 +39,10 @@ const columns: ColumnsType<DataType> = [
     dataIndex: 'item',
     defaultSortOrder: 'descend',
     width:180,
-    sorter: (a, b) => a.item.length - b.item.length,
   },
   {
     title: 'Reviews/Comments',
     dataIndex: 'reviews',
-    sorter: (a, b) => a.reviews.length - b.reviews.length,
   },
 ];
 
@@ -398,7 +395,7 @@ export function DashboardPage() {
       </Col>
       <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-24">
         <Card bordered={false} className="criclebox h-full">
-        <Table title={() => 'Updated Reviews'} size="small" columns={columns} dataSource={data} onChange={onChange} pagination={{ pageSize: 7 }} scroll={{ y: 290 }}  />
+        <Table bordered={false} title={() => 'Updated Reviews'} size="small" columns={columns} dataSource={data} onChange={onChange} pagination={{ pageSize: 7 }} scroll={{ y: 290 }}  />
         </Card>
       </Col>
     </Row>
