@@ -1,7 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import type { PreloadedState } from '@reduxjs/toolkit';
+import productSlice from "./slices/productSlice";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  products: productSlice
+});
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
