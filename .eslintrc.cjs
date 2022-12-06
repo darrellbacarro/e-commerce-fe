@@ -22,6 +22,8 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "semi": ["error", "always"],
+    "import/named": 0,
+    "@typescript-eslint/ban-types": 0
   },
   env: {
     node: true,

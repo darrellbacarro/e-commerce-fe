@@ -1,7 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import type { PreloadedState } from '@reduxjs/toolkit';
+import discountReducer from '../features/discountSlice';
+const rootReducer = combineReducers({
+  discount: discountReducer,
 
-const rootReducer = combineReducers({});
+});
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
