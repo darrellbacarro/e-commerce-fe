@@ -22,14 +22,12 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import GradingIcon from "@mui/icons-material/Grading";
-import { useNavigate, useLocation } from "react-router-dom";
-import { EnhancedTable } from "../components/tables";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 
 
 const drawerWidth = 210;
 
-
-export const AdminPage = () => {
+const AdminLayout = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -52,8 +50,8 @@ export const AdminPage = () => {
           sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
         >
           <Toolbar sx={{ justifyContent: "space-between" }}>
-            <Typography variant="h6" noWrap component="div">
-              Admin Page
+            <Typography variant="h6" noWrap component="div" sx={{fontSize: "16px", fontWeight: "bold"}}>
+              E-COMMERCE ADMIN
             </Typography>
             <Box
               sx={{ flexGrow: 0, display: "flex", gap: 2 }}
@@ -146,14 +144,16 @@ export const AdminPage = () => {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
-          <Breadcrumbs aria-label="breadcrumb" sx={{ marginBottom: "20px" }}>
+          <Breadcrumbs aria-label="breadcrumb" sx={{ marginBottom: "20px", fontSize: "12px", fontWeight: "bold" }}>
             <Link underline="hover" color="inherit">
               {location.pathname.toUpperCase()}
             </Link>
           </Breadcrumbs>
-          <EnhancedTable />
+          <Outlet />
         </Box>
       </Box>
     );
   };
+
+  export default AdminLayout;
   
